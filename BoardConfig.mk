@@ -101,7 +101,7 @@ BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9122611200
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor odm
 
 # System as root
-BOARD_ROOT_EXTRA_FOLDERS := bluetooth dsp firmware persist cache
+BOARD_ROOT_EXTRA_FOLDERS := bluetooth dsp firmware persist modem cache
 BOARD_SUPPRESS_SECURE_ERASE := true
 
 # File systems
