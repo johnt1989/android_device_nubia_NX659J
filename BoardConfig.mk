@@ -48,7 +48,7 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno650
 QCOM_BOARD_PLATFORMS += nubia_sm8250
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xa90000 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 loop.max_part=7 cgroup.memory=nokmem,nosocket reboot=panic_warm buildvariant=user
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xa90000 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 loop.max_part=7 cgroup.memory=nokmem,nosocket reboot=panic_warm
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_HEADER_VERSION := 2
 BOARD_KERNEL_IMAGE_NAME := Image
@@ -101,7 +101,7 @@ BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9122611200
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor odm
 
 # System as root
-BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware_mnt persist spunvm
+BOARD_ROOT_EXTRA_FOLDERS := bluetooth dsp modem persist cache
 BOARD_SUPPRESS_SECURE_ERASE := true
 
 # File systems
@@ -139,7 +139,9 @@ BUILD_BROKEN_USES_NETWORK := true
 # Tool
 TW_INCLUDE_REPACKTOOLS := true
 TW_INCLUDE_RESETPROP := true
-TW_INCLUDE_LIBRESETPROP :=true
+TW_INCLUDE_LIBRESETPROP := true
+TW_INCLUDE_LPDUMP := true
+TW_INCLUDE_LPTOOLS := true
 			     
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
@@ -155,9 +157,6 @@ TW_USE_TOOLBOX := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
-ifeq ($(TW_DEFAULT_LANGUAGE),)
-TW_DEFAULT_LANGUAGE := zh_CN
-endif
 TW_DEFAULT_BRIGHTNESS := 300
 TW_STATUS_ICONS_ALIGN := center
 TWRP_INCLUDE_LOGCAT := true
@@ -166,3 +165,4 @@ TW_NO_SCREEN_BLANK := true
 TW_HAS_EDL_MODE := false
 TW_SUPPORT_INPUT_AIDL_HAPTICS :=true
 TW_BACKUP_EXCLUSIONS := /data/fonts
+TW_FRAMERATE := 60
