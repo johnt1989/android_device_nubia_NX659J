@@ -14,13 +14,10 @@
 # limitations under the License.
 #
 
-# Configure base.mk
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
-# Configure core_64_bit_only.mk
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 
-# Configure twrp
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 PRODUCT_PACKAGES += \
@@ -28,16 +25,13 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_SHIPPING_API_LEVEL := 29
 
-# VNDK API
 PRODUCT_TARGET_VNDK_VERSION := 30
 
-# Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH)
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# otacert
 PRODUCT_EXTRA_RECOVERY_KEYS += \
     $(DEVICE_PATH)/security/magisk \
     $(DEVICE_PATH)/security/NX659J_releasekey
@@ -45,5 +39,4 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 # PRODUCT_RELEASE_NAME ro.twrp.device.name
 PRODUCT_PROPERTY_OVERRIDES += ro.twrp.device.name=$(PRODUCT_RELEASE_NAME)
 
-TWRP_REQUIRED_MODULES += NX659J_prebuilt \
-    magisk_prebuilt
+TWRP_REQUIRED_MODULES += NX659J_prebuilt
