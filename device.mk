@@ -50,5 +50,4 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 
 PRODUCT_COPY_FILES += \
     $(OUT_DIR)/target/product/NX659J/obj/SHARED_LIBRARIES/libandroidicu_intermediates/libandroidicu.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libandroidicu.so \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/prebuilt/$(PRODUCT_RELEASE_NAME)/modules,$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules) \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/prebuilt/$(PRODUCT_RELEASE_NAME)/firmware,$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware)
+    $(call find-copy-subdir-files,*.ko,$(LOCAL_PATH)/recovery/root/vendor/lib/modules,$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules)
